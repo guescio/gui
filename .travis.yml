@@ -1,6 +1,13 @@
 language: python
 python:
   - "3.6"      # current default Python on Travis CI
+addons:
+  apt:
+    packages:
+    - x11-utils
+    - libxkbcommon-x11-0
+services: xvfb
+dist: xenial
 #
 branches:
   only:
@@ -17,7 +24,7 @@ env:
   - MVMGUI_BASEDIR="." MVMGUI="./gui/"
 # command to run tests
 script:
-#  - pytest gui/test_basics.py
+   - pytest gui/test_basics.py
 #  - pytest gui/test_run.py
    - pytest gui/test_superbasics.py
 
