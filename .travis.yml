@@ -7,10 +7,11 @@ install:
   - pip install -r requirements.txt
   - pip install pytest
   - pip install pytest-qt
+env:
+  - MVMGUI_BASEDIR="."
+  - MVMGUI="./gui/"
 # command to run tests
 script:
   - pytest gui/test_basics.py
   - pytest gui/test_run.py
-env:
-  - MVMGUI_BASEDIR="."
-  - MVMGUI="./gui/"
+
