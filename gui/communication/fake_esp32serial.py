@@ -42,7 +42,7 @@ class FakeESP32Serial(QtWidgets.QMainWindow):
     def __init__(self, config):
         super(FakeESP32Serial, self).__init__()
 
-        uic.loadUi('communication/fakeesp32.ui', self)
+        uic.loadUi('./communication/fakeesp32.ui', self)
         self.get_all_fields = config["get_all_fields"]
         self.observables = {name: None for name in self.get_all_fields}
 

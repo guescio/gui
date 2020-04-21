@@ -5,6 +5,7 @@ from pytestqt.qt_compat import qt_api
 import pytest
 import time
 from mvm_basics import *
+from mainwindow import MainWindow
 from PyQt5.QtCore import QCoreApplication
 
 def test_basics(qtbot):
@@ -21,8 +22,6 @@ def test_basics(qtbot):
 
     assert widget.isVisible()
     assert widget.windowTitle() == "W1"
-
-from mainwindow import MainWindow
 
 def test_menu(qtbot):
     '''
