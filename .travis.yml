@@ -21,7 +21,7 @@ install:
   - pip install pytest-qt
   - pip install coverage
 env:
-  - MVMGUI_BASEDIR="./" MVMGUI="./gui/"
+  - MVMGUI_BASEDIR="." MVMGUI="./gui/"
 # command to run tests
 script:
    - pytest gui/test_basics.py
