@@ -8,12 +8,13 @@ import time
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QTextCursor
 from communication.peep import peep
+import os
 from . import ESP32Alarm, ESP32Warning
 
 class FakeMonitored(QtWidgets.QWidget):
     def __init__(self, name, generator, value=0, random=True):
         super(FakeMonitored, self).__init__()
-        uic.loadUi('communication/input_monitor_widget.ui', self)
+        uic.loadUi(os.environ['MVMGUI'] + 'communication/input_monitor_widget.ui', self)
 
         self.generator = generator
 
@@ -42,7 +43,7 @@ class FakeESP32Serial(QtWidgets.QMainWindow):
     def __init__(self, config):
         super(FakeESP32Serial, self).__init__()
 
-        uic.loadUi('communication/fakeesp32.ui', self)
+        uic.loadUi(os.environ['MVMGUI'] + 'communication/fakeesp32.ui', self)
         self.get_all_fields = config["get_all_fields"]
         self.observables = {name: None for name in self.get_all_fields}
 
