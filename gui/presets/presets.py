@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui
+import os
 
 class Presets(QtWidgets.QWidget):
     def __init__(self, presets, *args):
@@ -10,7 +11,7 @@ class Presets(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(Presets, self).__init__(*args)
-        uic.loadUi("presets/presets.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "presets/presets.ui", self)
 
         self.value = None
         # self.settings_owner = args[0] if len(args) else None

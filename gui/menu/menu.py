@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui
+import os
 
 class Menu(QtWidgets.QWidget):
     def __init__(self, *args):
@@ -10,7 +11,7 @@ class Menu(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(Menu, self).__init__(*args)
-        uic.loadUi("menu/menu.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "menu/menu.ui", self)
 
 
 

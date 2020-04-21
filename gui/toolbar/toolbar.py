@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui, QtCore
+import os
 
 from menu.menu import Menu
 
@@ -12,7 +13,7 @@ class Toolbar(QtWidgets.QWidget):
         Provides a passthrough to underlying widgets.
         """
         super(Toolbar, self).__init__(*args)
-        uic.loadUi("toolbar/toolbar.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "toolbar/toolbar.ui", self)
 
         self.label_status = self.findChild(QtWidgets.QLabel, "label_status")
         self.button_unlockscreen = self.findChild(QtWidgets.QPushButton, "button_unlockscreen")

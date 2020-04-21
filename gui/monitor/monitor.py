@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui
+import os
+
 class Monitor(QtWidgets.QWidget):
     def __init__(self, name, config, *args):
         """
@@ -10,7 +12,7 @@ class Monitor(QtWidgets.QWidget):
 
         """
         super(Monitor, self).__init__(*args)
-        uic.loadUi("monitor/monitor.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "monitor/monitor.ui", self)
         self.config = config
         self.configname = name
 

@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui, QtCore
 from pyqtgraph import InfiniteLine, TextItem, SignalProxy, PlotDataItem
 import numpy as np
+import os
 
 class Cursor:
     '''
@@ -120,7 +121,7 @@ class FrozenPlotsBottomMenu(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(FrozenPlotsBottomMenu, self).__init__(*args)
-        uic.loadUi("frozenplots/frozenplots_bottom.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "frozenplots/frozenplots_bottom.ui", self)
 
         self.button_reset_zoom = self.findChild(QtWidgets.QPushButton, "button_reset_zoom")
         self.xzoom = self.findChild(QtWidgets.QWidget, "xzoom")
@@ -169,7 +170,7 @@ class FrozenPlotsRightMenu(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(FrozenPlotsRightMenu, self).__init__(*args)
-        uic.loadUi("frozenplots/frozenplots_right.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "frozenplots/frozenplots_right.ui", self)
 
         self.yzoom_top = self.findChild(QtWidgets.QWidget, "yzoom_top")
         self.yzoom_mid = self.findChild(QtWidgets.QWidget, "yzoom_mid")
@@ -199,7 +200,7 @@ class YZoom(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(YZoom, self).__init__(*args)
-        uic.loadUi("frozenplots/y_zoom.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "frozenplots/y_zoom.ui", self)
 
         self.button_plus = self.findChild(QtWidgets.QPushButton, "y_plus")
         self.button_minus = self.findChild(QtWidgets.QPushButton, "y_minus")
@@ -255,7 +256,7 @@ class XZoom(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(XZoom, self).__init__(*args)
-        uic.loadUi("frozenplots/x_zoom.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "frozenplots/x_zoom.ui", self)
 
         self.button_plus = self.findChild(QtWidgets.QPushButton, "x_plus")
         self.button_minus = self.findChild(QtWidgets.QPushButton, "x_minus")
