@@ -12,6 +12,6 @@ env:
   - MVMGUI_BASEDIR="." MVMGUI="./gui/"
 # command to run tests
 script:
-  - pytest gui/test_basics.py
-  - pytest gui/test_run.py
+  - python -m pytest gui/test_basics.py --cov=./gui/
+  - python -m pytest gui/test_run.py --cov=./gui/
 
