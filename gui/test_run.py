@@ -3,8 +3,8 @@
 from pytestqt import qt_compat
 from pytestqt.qt_compat import qt_api
 
-from .mvm_basics import *
-from .mainwindow import MainWindow
+from mvm_basics import *
+from mainwindow import MainWindow
 import time
 
 def test_run(qtbot):
