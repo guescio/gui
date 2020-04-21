@@ -1,6 +1,11 @@
 language: python
 python:
   - "3.6"      # current default Python on Travis CI
+#
+branches:
+  only:
+#  - master
+  - testwtravis
 # command to install dependencies
 install:
   - pip install --upgrade pip
@@ -12,6 +17,7 @@ env:
   - MVMGUI_BASEDIR="." MVMGUI="./gui/"
 # command to run tests
 script:
-  - pytest gui/test_basics.py
-  - pytest gui/test_run.py
+#  - pytest gui/test_basics.py
+#  - pytest gui/test_run.py
+   - pytest gui/test_superbasic.py
 
