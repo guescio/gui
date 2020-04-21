@@ -14,4 +14,3 @@ env:
 script:
   - pytest gui/test_basics.py
   - pytest gui/test_run.py
-
