@@ -8,8 +8,7 @@ install:
   - pip install pytest
   - pip install pytest-qt
 env:
-  - MVMGUI_BASEDIR="."
-  - MVMGUI="./gui/"
+  - MVMGUI_BASEDIR="." MVMGUI="./gui/"
 # command to run tests
 script:
   - pytest gui/test_basics.py
