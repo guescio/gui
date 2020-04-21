@@ -28,6 +28,7 @@ from frozenplots.frozenplots import Cursor
 import pyqtgraph as pg
 import sys
 import time
+import os
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, config, esp32, *args, **kwargs):
