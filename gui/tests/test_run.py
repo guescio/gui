@@ -3,7 +3,7 @@
 from pytestqt import qt_compat
 from pytestqt.qt_compat import qt_api
 
-from mvm_basics import *
+from .mvm_basics import *
 from mainwindow import MainWindow
 import time
 
@@ -28,7 +28,7 @@ def test_run(qtbot):
     def check_label():
         assert "Running" in window.toolbar.label_status.text()
 
-    qtbot.waitUntil(check_label, timeout=10000)
+    qtbot.waitUntil(check_label, timeout=10)
 
     assert "Running" in window.toolbar.label_status.text()
 

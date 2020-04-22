@@ -7,7 +7,7 @@ import random
 import time
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QTextCursor
-from communication.peep import peep
+from .peep import peep
 import os
 from . import ESP32Alarm, ESP32Warning
 
