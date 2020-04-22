@@ -51,7 +51,10 @@ def test_start_operating(qtbot):
 
     # Change the modality
     work.toggle_mode()
+    work.toggle_start_stop()
     work.start_button_pressed()
 
     qtbot.waitUntil(lambda: "Running" in work.toolbar.label_status.text() and "PSV" in work.toolbar.label_status.text(), timeout=5000)
     assert True
+
+    assert work.is_running()
