@@ -6,6 +6,7 @@ import pytest
 import time
 from .mvm_basics import *
 from mainwindow import MainWindow
+from messagebox import MessageBox
 from PyQt5.QtCore import QCoreApplication
 
 def test_basics(qtbot):
@@ -43,13 +44,13 @@ def test_menu(qtbot):
     window.close()
 
 @pytest.mark.parametrize("code, expected, message", [(0, 1, "Gas pressure too low"),
-                                                     (1, 2, ""), 
+                                                     (1, 2, ""),
                                                      (2, 4, ""),
                                                      (3, 8, ""),
-                                                     (4, 16, ""), 
-                                                     (5, 32, ""), 
-                                                     (6, 64, ""), 
-                                                     (7, 128, ""), 
+                                                     (4, 16, ""),
+                                                     (5, 32, ""),
+                                                     (6, 64, ""),
+                                                     (7, 128, ""),
                                                      (31, 2147483648, "")])
 def test_single_alarm(qtbot, code, expected, message):
     '''
@@ -68,10 +69,8 @@ def test_single_alarm(qtbot, code, expected, message):
     
     esp32.alarms_checkboxes[code].setChecked(True)
     esp32._compute_and_raise_alarms()
-    
+
     assert esp32.get_alarms().number == expected
-    
-    time.sleep(0.5)
     
     esp32.alarms_checkboxes[code].setChecked(False)
 
