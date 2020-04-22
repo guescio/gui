@@ -4,7 +4,7 @@ Manual changes that had to be done as of the 'v5' MVM raspberry pi4 image to run
   * Make sure no direct reference to /dev/mmcblcXX esists (changed /dev/mmcblk0p3 -> /storage mount in /etc/fstab to PARTUUID=738a4d67-03)
   * Change the 'pi' account password in /etc/shadow as it's not the default one.
   * In the 'v5' image the third partition ('/storage') seems not to accessible or is corrupted (used not to be the case) in previous versions. Commented out /storage in /etc/fstab altogether. kpartx output:
-      # kpartx -v -a readonly-raspiesp32-v5
+      \# kpartx -v -a readonly-raspiesp32-v5
       add map loop0p1 (254:0): 0 524288 linear 7:0 8192
       add map loop0p2 (254:1): 0 12294144 linear 7:0 532480
       device-mapper: reload ioctl on loop0p3  failed: Invalid argument
