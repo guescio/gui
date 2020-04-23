@@ -16,6 +16,7 @@ def test_createNumPad(qtbot):
 
     assert qt_api.QApplication.instance() is not None
     esp32 = FakeESP32Serial(config)
+    qtbot.addWidget(esp32)
     window = MainWindow(config, esp32)
     qtbot.addWidget(window)
 
@@ -41,15 +42,19 @@ def test_codeNumPad(qtbot):
 
     pad = NumPad(window)
     pad.assign_code("1234", checkCode)
+    assert pad.func is not None
 
     # Check that the code is correctly set
     assert pad.code == [1,2,3,4]
 
     # Try to set the code
-    pad.input_number(4)
-    pad.input_number(3)
-    pad.input_number(2)
     pad.input_number(1)
+    pad.input_number(2)
+    pad.input_number(3)
+    pad.input_number(4)
+
+    pad.check_code()
+    assert pad.code == [1, 2, 3, 4]
 
 
 """
@@ -76,6 +81,8 @@ def test_lockTheScreen(qtbot):
     # Check if all the elements in the gui are locked
     assert window.toppane.isEnabled() == False
     assert window.home_button.currentWidget() == window.goto_unlock
+
+
 
 
 

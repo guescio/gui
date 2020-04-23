@@ -17,6 +17,7 @@ def test_objectCreation(qtbot):
 
     assert qt_api.QApplication.instance() is not None
     esp32 = FakeESP32Serial(config)
+    qtbot.addWidget(esp32)
     window = MainWindow(config, esp32)
     qtbot.addWidget(window)
     handler = AlarmHandler(config, esp32)

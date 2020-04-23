@@ -33,6 +33,7 @@ def test_start_operating(qtbot):
     assert qt_api.QApplication.instance() is not None
 
     esp32 = FakeESP32Serial(config)
+    qtbot.addWidget(esp32)
         
     print(esp32)
 

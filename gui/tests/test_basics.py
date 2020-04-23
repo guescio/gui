@@ -33,6 +33,7 @@ def test_menu(qtbot):
     assert qt_api.QApplication.instance() is not None
 
     esp32 = FakeESP32Serial(config)
+    qtbot.addWidget(esp32)
         
     print(esp32)
 
@@ -44,7 +45,7 @@ def test_menu(qtbot):
     window.close()
 
 @pytest.mark.parametrize("code, expected, message", [(0, 1, "Gas pressure too low"),
-                                                     (1, 2, ""),
+                                                     (1, 2, "Gass pressure too high"),
                                                      (2, 4, ""),
                                                      (3, 8, ""),
                                                      (4, 16, ""),
@@ -60,7 +61,8 @@ def test_single_alarm(qtbot, code, expected, message):
     assert qt_api.QApplication.instance() is not None
 
     esp32 = FakeESP32Serial(config)
-    
+    qtbot.addWidget(esp32)
+
     window = MainWindow(config, esp32)
     qtbot.addWidget(window)
     qtbot.mouseClick(window.button_menu, QtCore.Qt.LeftButton)
@@ -68,6 +70,7 @@ def test_single_alarm(qtbot, code, expected, message):
     code = (1 << code)
     
     esp32.alarms_checkboxes[code].setChecked(True)
+
     esp32._compute_and_raise_alarms()
 
     assert esp32.get_alarms().number == expected
@@ -84,6 +87,7 @@ def test_not_alarm(qtbot):
     assert qt_api.QApplication.instance() is not None
 
     esp32 = FakeESP32Serial(config)
+    qtbot.addWidget(esp32)
     
     window = MainWindow(config, esp32)
     qtbot.addWidget(window)

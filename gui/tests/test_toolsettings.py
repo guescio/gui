@@ -16,6 +16,7 @@ def test_setupWithUnits(qtbot):
 
     assert qt_api.QApplication.instance() is not None
     esp32 = FakeESP32Serial(config)
+    qtbot.addWidget(esp32)
     window = MainWindow(config, esp32)
     qtbot.addWidget(window)
     settings = ToolSettings()
@@ -33,6 +34,7 @@ def test_setupWithoutUnits(qtbot):
 
     assert qt_api.QApplication.instance() is not None
     esp32 = FakeESP32Serial(config)
+    qtbot.addWidget(esp32)
     window = MainWindow(config, esp32)
     qtbot.addWidget(window)
     settings = ToolSettings()
