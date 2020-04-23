@@ -50,3 +50,34 @@ def test_codeNumPad(qtbot):
     pad.input_number(3)
     pad.input_number(2)
     pad.input_number(1)
+
+
+"""
+Security Requirement - 1 
+"""
+def test_lockTheScreen(qtbot):
+    assert qt_api.QApplication.instance() is not None
+    esp32 = FakeESP32Serial(config)
+    window = MainWindow(config, esp32)
+    window.show()
+    qtbot.addWidget(window)
+
+    # Click on the menù button
+    qtbot.mouseClick(window.button_menu, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.menu
+
+    # Click on the settings button
+    qtbot.mouseClick(window.button_settings, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.settingsbar
+
+    # Click on the lock screen button
+    qtbot.mouseClick(window.button_lockscreen, QtCore.Qt.LeftButton)
+
+    # Check if all the elements in the gui are locked
+    assert window.toppane.isEnabled() == False
+    assert window.home_button.currentWidget() == window.goto_unlock
+
+
+
+
+
