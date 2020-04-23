@@ -25,6 +25,7 @@ def test_createNumPad(qtbot):
 
 
 def checkCode():
+    print("Ok")
     assert True
 
 
@@ -39,7 +40,7 @@ def test_codeNumPad(qtbot):
     qtbot.addWidget(window)
 
     pad = NumPad(window)
-    pad.assign_code("1234", checkCode())
+    pad.assign_code("1234", checkCode)
 
     # Check that the code is correctly set
     assert pad.code == [1,2,3,4]
