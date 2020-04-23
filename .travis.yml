@@ -24,6 +24,6 @@ env:
   - MVMGUI_BASEDIR="." MVMGUI="./gui/"
 # command to run tests
 script:
-  - coverage run -m pytest gui/tests/test_menu.py gui/tests/test_basics.py
+  - coverage run -m pytest gui/tests/test_menu.py gui/tests/test_basics.py gui/tests/test_numpad.py
   - coverage report -m --include=gui/*
 
