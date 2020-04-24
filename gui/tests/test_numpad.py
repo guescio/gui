@@ -9,6 +9,9 @@ from mainwindow import MainWindow
 from gui.numpad.numpad import NumPad
 from PyQt5.QtCore import QCoreApplication
 
+"""
+TH01 
+"""
 def test_createNumPad(qtbot):
     '''
     Test the creation of the NumPad instance
@@ -24,12 +27,17 @@ def test_createNumPad(qtbot):
 
     assert pad is not None
 
+    time.sleep(0.5)
+
 
 def checkCode():
     print("Ok")
     assert True
 
 
+"""
+TH02 
+"""
 def test_codeNumPad(qtbot):
     '''
     Test the assignment and the comparison of the code
@@ -56,9 +64,11 @@ def test_codeNumPad(qtbot):
     pad.check_code()
     assert pad.code == [1, 2, 3, 4]
 
+    time.sleep(0.5)
+
 
 """
-Security Requirement - 1 
+TS01: Security Requirement - 1 
 """
 def test_lockTheScreen(qtbot):
     assert qt_api.QApplication.instance() is not None
@@ -82,9 +92,35 @@ def test_lockTheScreen(qtbot):
     assert window.toppane.isEnabled() == False
     assert window.home_button.currentWidget() == window.goto_unlock
 
+    window.close()
 
 
+"""
+TH06
+"""
+def test_unlockTheScreen(qtbot):
+    assert qt_api.QApplication.instance() is not None
+    esp32 = FakeESP32Serial(config)
+    window = MainWindow(config, esp32)
+    qtbot.addWidget(window)
 
+    # Click on the menù button
+    qtbot.mouseClick(window.button_menu, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.menu
 
+    # Click on the settings button
+    qtbot.mouseClick(window.button_settings, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.settingsbar
 
+    # Click on the lock screen button
+    qtbot.mouseClick(window.button_lockscreen, QtCore.Qt.LeftButton)
+
+    # Check if all the elements in the gui are locked
+    assert window.toppane.isEnabled() == False
+    assert window.home_button.currentWidget() == window.goto_unlock
+
+    # Unlock the screen
+    window.unlock_screen()
+    assert window.toppane.isEnabled() == True
+    window.close()
 

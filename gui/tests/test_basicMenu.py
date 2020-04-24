@@ -6,6 +6,7 @@ import pytest
 import time
 from .mvm_basics import *
 from mainwindow import MainWindow
+from gui.controller_status import ControllerStatus
 from start_stop_worker import StartStopWorker
 from PyQt5.QtCore import QCoreApplication
 
@@ -24,7 +25,9 @@ def test_basics(qtbot):
     assert widget.isVisible()
     assert widget.windowTitle() == "W1"
 
-
+"""
+TS14
+"""
 def test_start_operating(qtbot):
     '''
     Test the start of the PCV Mode, and then in PSV Mode
@@ -59,3 +62,5 @@ def test_start_operating(qtbot):
     assert True
 
     assert work.is_running()
+
+    time.sleep(0.5)

@@ -25,5 +25,5 @@ env:
 # command to run tests
 script:
   - coverage run -m pytest gui/tests/test_menu.py gui/tests/test_basics.py gui/tests/test_numpad.py gui/tests/test_toolsettings.py
-  - coverage report -m --include=gui/*
+  - coverage report -m --include=gui/* --omit=gui/tests/*,*__init__.py
 

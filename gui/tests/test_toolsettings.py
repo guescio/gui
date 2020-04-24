@@ -9,6 +9,10 @@ from mainwindow import MainWindow
 from gui.toolsettings.toolsettings import ToolSettings
 from PyQt5.QtCore import QCoreApplication
 
+
+"""
+TH04
+"""
 def test_setupWithUnits(qtbot):
     '''
     Test the creation of the ToolSettings instance with name and units
@@ -26,7 +30,11 @@ def test_setupWithUnits(qtbot):
     assert settings.label_name.text() == "Prova"
     assert settings.label_units.text() == "a"
 
+    time.sleep(0.5)
 
+"""
+TH05
+"""
 def test_setupWithoutUnits(qtbot):
     '''
     Test the creation of the ToolSettings instance with name but without units
@@ -43,3 +51,5 @@ def test_setupWithoutUnits(qtbot):
 
     assert settings.label_name.text() == "Prova"
     assert settings.label_units.text() == ""
+
+    time.sleep(0.5)

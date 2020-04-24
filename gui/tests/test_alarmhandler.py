@@ -5,11 +5,16 @@ from pytestqt.qt_compat import qt_api
 from PyQt5.QtWidgets import *
 import pytest
 from .mvm_basics import *
+import time
 from mainwindow import MainWindow
 from gui.messagebox import MessageBox
 from gui.alarm_handler import AlarmHandler
 from PyQt5.QtCore import QCoreApplication
 
+
+"""
+TH08
+"""
 def test_objectCreation(qtbot):
     '''
     Test the creation of the AlarmHandler instance
@@ -23,4 +28,6 @@ def test_objectCreation(qtbot):
     handler = AlarmHandler(config, esp32)
 
     assert handler is not None
+
+    time.sleep(0.5)
 

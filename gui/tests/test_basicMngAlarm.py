@@ -4,6 +4,7 @@
 from pytestqt.qt_compat import qt_api
 import pytest
 import time
+import sys
 from .mvm_basics import *
 from mainwindow import MainWindow
 from messagebox import MessageBox
@@ -24,7 +25,9 @@ def test_basics(qtbot):
     assert widget.isVisible()
     assert widget.windowTitle() == "W1"
 
-
+"""
+TH03 
+"""
 def test_menu(qtbot):
     '''
     Tests that the menu opens
@@ -44,15 +47,21 @@ def test_menu(qtbot):
 
     window.close()
 
+    time.sleep(0.5)
+
+
+"""
+TS04-TS12
+"""
 @pytest.mark.parametrize("code, expected, message", [(0, 1, "Gas pressure too low"),
-                                                     (1, 2, "Gass pressure too high"),
-                                                     (2, 4, ""),
-                                                     (3, 8, ""),
-                                                     (4, 16, ""),
-                                                     (5, 32, ""),
-                                                     (6, 64, ""),
-                                                     (7, 128, ""),
-                                                     (31, 2147483648, "")])
+                                                     (1, 2, "Gas pressure too high"),
+                                                     (2, 4, "Internal pressure too low (internal leakage)"),
+                                                     (3, 8, "Internal pressure too high"),
+                                                     (4, 16, "Out of battery power"),
+                                                     (5, 32, "Leakage in gas circuit"),
+                                                     (6, 64, "Obstruction in idraulic circuit"),
+                                                     (7, 128, "Partial obstruction in idraulic circuit"),
+                                                     (31, 2147483648, "System failure")])
 def test_single_alarm(qtbot, code, expected, message):
     '''
     Tests that when there is an alarm, it is revealed by the get_alarms function
@@ -66,19 +75,24 @@ def test_single_alarm(qtbot, code, expected, message):
     window = MainWindow(config, esp32)
     qtbot.addWidget(window)
     qtbot.mouseClick(window.button_menu, QtCore.Qt.LeftButton)
-    
+    messagebox = window.alarm_h._msg_err
+    qtbot.addWidget(messagebox)
+
     code = (1 << code)
     
     esp32.alarms_checkboxes[code].setChecked(True)
 
     esp32._compute_and_raise_alarms()
-
     assert esp32.get_alarms().number == expected
-    
-    esp32.alarms_checkboxes[code].setChecked(False)
 
-    window.close()
-       
+    esp32.reset_alarms()
+
+    time.sleep(0.5)
+
+
+"""
+TS13
+"""
 def test_not_alarm(qtbot):
     '''
     Tests the absence of alarms
@@ -97,15 +111,6 @@ def test_not_alarm(qtbot):
     
     assert esp32.get_alarms().number == 0
 
-    window.close()
+    esp32.reset_alarms()
 
-
-
-
-
-
-
-
-
-
-
+    time.sleep(0.5)
