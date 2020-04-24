@@ -27,4 +27,17 @@ script:
   - coverage run -m pytest gui/tests/
   - coverage report -m --include=gui/* --omit=gui/tests/*,*__init__.py
   - coverage html --include=gui/* --omit=gui/tests/*,*__init__.py
+
+
+# deploy to the pages
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: gh-pages
+  verbose: true
+
+
     
