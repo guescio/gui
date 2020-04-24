@@ -33,7 +33,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: TOKEN
+  github_token: Token
   keep_history: true
   on:
     branch: testwtravis
