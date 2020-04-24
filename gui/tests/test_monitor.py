@@ -10,7 +10,7 @@ from gui.mainwindow import MainWindow
 from PyQt5.QtCore import QCoreApplication
 
 """
-TH13
+TH12
 """
 def test_monitorSizeMod(qtbot):
     '''
@@ -78,6 +78,33 @@ def test_showModeSettings(qtbot):
 
     # Click on the alarm settings button and reset all the changes
     qtbot.mouseClick(window.button_settings, QtCore.Qt.LeftButton)
+
+
+"""
+TS19
+"""
+def test_showSpecialOperations(qtbot):
+    assert qt_api.QApplication.instance() is not None
+    esp32 = FakeESP32Serial(config)
+    window = MainWindow(config, esp32)
+    qtbot.addWidget(window)
+
+    # Click on the menù button
+    qtbot.mouseClick(window.button_menu, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.menu
+
+    # Click on the settings button
+    qtbot.mouseClick(window.button_specialops, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.specialbar
+
+    # Click on the freeze button
+    qtbot.mouseClick(window.button_freeze, QtCore.Qt.LeftButton)
+    assert window.rightbar.currentWidget() == window.frozen_right
+    assert window.bottombar.currentWidget() == window.frozen_bot
+
+    # Unfreeze the plots
+    qtbot.mouseClick(window.button_unfreeze, QtCore.Qt.LeftButton)
+    assert window.rightbar.currentWidget() == window.monitors_bar
 
 
 

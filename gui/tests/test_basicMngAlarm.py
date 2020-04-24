@@ -6,6 +6,7 @@ import pytest
 import time
 import sys
 from .mvm_basics import *
+from gui.alarm_handler import AlarmHandler
 from mainwindow import MainWindow
 from messagebox import MessageBox
 from PyQt5.QtCore import QCoreApplication
@@ -83,6 +84,9 @@ def test_single_alarm(qtbot, code, expected, message):
     esp32._compute_and_raise_alarms()
     assert esp32.get_alarms().number == expected
 
+    handler = AlarmHandler(config, esp32)
+    handler.handle_alarms()
+
     esp32.reset_alarms()
 
 
@@ -115,7 +119,7 @@ TS15-TS16
 """
 @pytest.mark.parametrize("code, expected, message", [(0, 1, ""),
                                                      (1, 2, "")])
-def test_single_alarm(qtbot, code, expected, message):
+def test_single_warning(qtbot, code, expected, message):
     '''
     Tests that when there is a warning, it is revealed by the get_warnings function
     '''
