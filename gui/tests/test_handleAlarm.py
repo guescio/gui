@@ -29,5 +29,3 @@ def test_objectCreation(qtbot):
 
     assert handler is not None
 
-    time.sleep(0.5)
-

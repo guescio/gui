@@ -36,5 +36,3 @@ def test_monitorSizeMod(qtbot):
     assert monitor.value == 10
     monitor.value = value
 
-    time.sleep(0.5)
-

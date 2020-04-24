@@ -40,8 +40,6 @@ def test_cursorShow(qtbot):
     for c in cursor.cursor_y:     assert c.isVisible
     for c in cursor.cursor_label: assert c.isVisible
 
-    time.sleep(0.5)
-
 """
 TH10
 """
@@ -74,6 +72,4 @@ def test_cursorDrawLabel(qtbot):
 
     for num, plot in enumerate(cursor.plots):
         assert str(cursor._y[num]) in cursor.cursor_label[num].textItem.toPlainText()
-
-    time.sleep(0.5)
 

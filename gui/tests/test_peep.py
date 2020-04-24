@@ -28,5 +28,3 @@ def test_peepReset(qtbot):
     assert p.t0 != t0
 
     p.t5 = t5
-
-    time.sleep(0.5)

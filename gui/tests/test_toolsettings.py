@@ -30,8 +30,6 @@ def test_setupWithUnits(qtbot):
     assert settings.label_name.text() == "Prova"
     assert settings.label_units.text() == "a"
 
-    time.sleep(0.5)
-
 """
 TH05
 """
@@ -51,5 +49,3 @@ def test_setupWithoutUnits(qtbot):
 
     assert settings.label_name.text() == "Prova"
     assert settings.label_units.text() == ""
-
-    time.sleep(0.5)
