@@ -16,7 +16,7 @@ def test_paintEvent(qtbot):
     '''
 
     toggle = MVMToggle()
-    toggle.setEnabled(False)
+    toggle.setEnabled(True)
     toggle.setChecked(False)
     toggle.paintEvent(None)
 
