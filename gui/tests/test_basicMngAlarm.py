@@ -108,3 +108,32 @@ def test_not_alarm(qtbot):
     assert esp32.get_alarms().number == 0
 
     esp32.reset_alarms()
+
+
+"""
+TS15-TS16
+"""
+@pytest.mark.parametrize("code, expected, message", [(0, 1, ""),
+                                                     (1, 2, "")])
+def test_single_alarm(qtbot, code, expected, message):
+    '''
+    Tests that when there is a warning, it is revealed by the get_warnings function
+    '''
+
+    assert qt_api.QApplication.instance() is not None
+
+    esp32 = FakeESP32Serial(config)
+    qtbot.addWidget(esp32)
+
+    window = MainWindow(config, esp32)
+    qtbot.addWidget(window)
+    qtbot.mouseClick(window.button_menu, QtCore.Qt.LeftButton)
+
+    code = (1 << code)
+
+    esp32.warning_checkboxes[code].setChecked(True)
+
+    esp32._compute_and_raise_warnings()
+    assert esp32.get_warnings().number == expected
+
+    esp32.reset_warnings()

@@ -36,3 +36,48 @@ def test_monitorSizeMod(qtbot):
     assert monitor.value == 10
     monitor.value = value
 
+
+"""
+TS17
+"""
+def test_showAlarmsSettings(qtbot):
+    assert qt_api.QApplication.instance() is not None
+    esp32 = FakeESP32Serial(config)
+    window = MainWindow(config, esp32)
+    qtbot.addWidget(window)
+
+    # Click on the menù button
+    qtbot.mouseClick(window.button_menu, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.menu
+
+    # Click on the settings button
+    qtbot.mouseClick(window.button_start_settings, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.settingsbar
+
+    # Click on the alarm settings button and reset all the changes
+    qtbot.mouseClick(window.button_alarms, QtCore.Qt.LeftButton)
+    assert window.centerpane.currentWidget() == window.alarms_settings
+
+
+"""
+TS18
+"""
+def test_showModeSettings(qtbot):
+    assert qt_api.QApplication.instance() is not None
+    esp32 = FakeESP32Serial(config)
+    window = MainWindow(config, esp32)
+    qtbot.addWidget(window)
+
+    # Click on the menù button
+    qtbot.mouseClick(window.button_menu, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.menu
+
+    # Click on the settings button
+    qtbot.mouseClick(window.button_start_settings, QtCore.Qt.LeftButton)
+    assert window.bottombar.currentWidget() == window.settingsbar
+
+    # Click on the alarm settings button and reset all the changes
+    qtbot.mouseClick(window.button_settings, QtCore.Qt.LeftButton)
+
+
+

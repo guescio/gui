@@ -109,7 +109,7 @@ def test_unlockTheScreen(qtbot):
     assert window.bottombar.currentWidget() == window.menu
 
     # Click on the settings button
-    qtbot.mouseClick(window.button_settings, QtCore.Qt.LeftButton)
+    qtbot.mouseClick(window.button_start_settings, QtCore.Qt.LeftButton)
     assert window.bottombar.currentWidget() == window.settingsbar
 
     # Click on the lock screen button
