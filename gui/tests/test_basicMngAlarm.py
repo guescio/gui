@@ -47,8 +47,6 @@ def test_menu(qtbot):
 
     window.close()
 
-    time.sleep(0.5)
-
 
 """
 TS04-TS12
@@ -87,8 +85,6 @@ def test_single_alarm(qtbot, code, expected, message):
 
     esp32.reset_alarms()
 
-    time.sleep(0.5)
-
 
 """
 TS13
@@ -112,5 +108,3 @@ def test_not_alarm(qtbot):
     assert esp32.get_alarms().number == 0
 
     esp32.reset_alarms()
-
-    time.sleep(0.5)

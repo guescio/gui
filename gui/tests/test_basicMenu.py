@@ -62,5 +62,3 @@ def test_start_operating(qtbot):
     assert True
 
     assert work.is_running()
-
-    time.sleep(0.5)
