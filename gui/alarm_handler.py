@@ -83,7 +83,7 @@ class SnoozeButton:
                                 msg.Abort: lambda: None })
             fn()
 
-class AlarmButton(QtGui.QPushButton):
+class AlarmButton(QtWidgets.QPushButton):
     '''
     The alarm and warning buttons
     shown in the top alarmbar
