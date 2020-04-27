@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui, QtCore
+import os
 
 class MessageBar(QtWidgets.QWidget):
     def __init__(self, parent, *args):
