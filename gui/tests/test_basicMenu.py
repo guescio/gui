@@ -37,6 +37,8 @@ def test_start_operating(qtbot):
 
     esp32 = FakeESP32Serial(config)
     qtbot.addWidget(esp32)
+
+    assert config is not None
         
     print(esp32)
 
@@ -48,13 +50,19 @@ def test_start_operating(qtbot):
     work = StartStopWorker(window, config, esp32, window.button_startstop,
             window.button_autoassist, window.toolbar, window.settings)
 
+    assert "Stopped" in work.toolbar.label_status.text() and "PCV" in work.toolbar.label_status.text()
+
     work.start_button_pressed()
 
     qtbot.waitUntil(lambda: "Running" in work.toolbar.label_status.text() and "PCV" in work.toolbar.label_status.text(), timeout=5000)
     assert True
 
+    assert window.button_autoassist.isEnabled() == False
+
     # Change the modality
     work.toggle_mode()
+
+    assert "Stopped" in work.toolbar.label_status.text() and "PSV" in work.toolbar.label_status.text()
     work.toggle_start_stop()
     work.start_button_pressed()
 
@@ -62,3 +70,4 @@ def test_start_operating(qtbot):
     assert True
 
     assert work.is_running()
+
