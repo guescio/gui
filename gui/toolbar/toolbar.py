@@ -4,9 +4,11 @@ Module containing the Toolbar class
 which shows the current status of the
 ventilator
 '''
+
+import os
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui, QtCore
-import os
+
 
 class Toolbar(QtWidgets.QWidget):
     '''
