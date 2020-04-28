@@ -4,7 +4,9 @@ Widget for showing user some preset values for quickly changing
 a setting.
 """
 
+import os
 from PyQt5 import QtWidgets, uic
+
 
 class Presets(QtWidgets.QWidget):
     """
@@ -31,7 +33,7 @@ class Presets(QtWidgets.QWidget):
         - args: Other arguments for QtWidgets.QWidget
         """
         super(Presets, self).__init__(*args)
-        uic.loadUi("presets/presets.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "presets/presets.ui", self)
 
         # get the buttons from the preset dialog
         self.button_cancel = self.findChild(QtWidgets.QPushButton, "button_cancel")

@@ -3,6 +3,7 @@ A dummy class that can be used for testing the GUI when a real
 ESP32 chip isn't available.
 """
 
+import os
 import random
 import time
 from PyQt5 import QtWidgets, uic
@@ -26,7 +27,7 @@ class FakeMonitored(QtWidgets.QWidget):
         - is_random: Boolean to indicate using randomized data.
         """
         super(FakeMonitored, self).__init__()
-        uic.loadUi('communication/input_monitor_widget.ui', self)
+        uic.loadUi(os.environ['MVMGUI'] + 'communication/input_monitor_widget.ui', self)
 
         self.generator = generator
 
@@ -65,7 +66,7 @@ class FakeESP32Serial(QtWidgets.QMainWindow):
     def __init__(self, config):
         super(FakeESP32Serial, self).__init__()
 
-        uic.loadUi('communication/fakeesp32.ui', self)
+        uic.loadUi(os.environ['MVMGUI'] + 'communication/fakeesp32.ui', self)
         self.get_all_fields = config["get_all_fields"]
         self.observables = {name: None for name in self.get_all_fields}
 

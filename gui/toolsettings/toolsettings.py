@@ -6,8 +6,10 @@ how that value relates to the minimum/maximum allowed values of the parameter.
 This widget does not allow the value to be changed - it is just informational.
 """
 
+import os
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui
+
 
 class ToolSettings(QtWidgets.QWidget):
     """
@@ -32,7 +34,7 @@ class ToolSettings(QtWidgets.QWidget):
         Grabs child widgets and and connects slider value to text value.
         """
         super(ToolSettings, self).__init__(*args)
-        uic.loadUi("toolsettings/toolsettings.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "toolsettings/toolsettings.ui", self)
 
         self.labels = {}
         self.labels["name"] = self.findChild(QtWidgets.QLabel, "label_name")

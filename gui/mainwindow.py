@@ -3,6 +3,7 @@
 This module handles the main window.
 """
 
+import os
 from PyQt5 import QtWidgets, uic
 
 #from maindisplay.maindisplay import MainDisplay
@@ -44,7 +45,7 @@ class MainWindow(QtWidgets.QMainWindow):
         """
 
         super(MainWindow, self).__init__(*args, **kwargs)
-        uic.loadUi('mainwindow.ui', self)  # Load the .ui file
+        uic.loadUi(os.environ['MVMGUI'] + 'mainwindow.ui', self) # Load the .ui file
 
         self.config = config
         self.esp32 = esp32

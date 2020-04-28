@@ -3,6 +3,7 @@
 Settings bar helper
 """
 
+import os
 from PyQt5 import QtWidgets, uic
 
 
@@ -18,4 +19,4 @@ class SettingsBar(QtWidgets.QWidget):
         Provides a passthrough to underlying widgets.
         """
         super(SettingsBar, self).__init__(*args)
-        uic.loadUi("settings/settingsbar.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "settings/settingsbar.ui", self)

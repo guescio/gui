@@ -115,6 +115,7 @@ class AlarmButton(QtWidgets.QPushButton):
     - _snooze_btn: The SnoozeButton to manipulate if the user clicks our
         button.
     """
+
     def __init__(self, mode, code, errstr, label, snooze_btn):
         super(AlarmButton, self).__init__()
         self._mode = mode

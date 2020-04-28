@@ -3,6 +3,7 @@
 Main window helper
 """
 
+import os
 from PyQt5 import QtWidgets, uic
 
 
@@ -18,4 +19,4 @@ class MainDisplay(QtWidgets.QWidget):
         Provides a passthrough to underlying widgets.
         """
         super(MainDisplay, self).__init__(*args)
-        uic.loadUi("maindisplay/maindisplay.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "maindisplay/maindisplay.ui", self)

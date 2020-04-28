@@ -4,6 +4,7 @@ Module that implements the widget for monitored values, with alarm
 indication and snooze control.
 """
 
+import os
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui
 
@@ -25,7 +26,7 @@ class Monitor(QtWidgets.QWidget):
 
         """
         super(Monitor, self).__init__(*args)
-        uic.loadUi("monitor/monitor.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "monitor/monitor.ui", self)
         self.config = config
         self.configname = name
 

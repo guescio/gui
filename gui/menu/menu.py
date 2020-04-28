@@ -3,6 +3,7 @@
 Menu bar helper.
 """
 
+import os
 from PyQt5 import QtWidgets, uic
 
 
@@ -18,4 +19,4 @@ class Menu(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(Menu, self).__init__(*args)
-        uic.loadUi("menu/menu.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "menu/menu.ui", self)

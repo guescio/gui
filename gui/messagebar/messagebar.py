@@ -3,6 +3,7 @@
 Bottom message bar that asks for user confirmation.
 """
 
+import os
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtCore
 
@@ -20,7 +21,7 @@ class MessageBar(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(MessageBar, self).__init__(*args)
-        uic.loadUi("messagebar/messagebar.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "messagebar/messagebar.ui", self)
 
         self.mainparent = parent
         self.bottombar = self.mainparent.bottombar

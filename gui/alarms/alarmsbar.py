@@ -3,6 +3,7 @@
 Alarm bar helper
 """
 
+import os
 from PyQt5 import QtWidgets, uic
 
 
@@ -18,4 +19,5 @@ class AlarmsBar(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(AlarmsBar, self).__init__(*args)
-        uic.loadUi("alarms/alarmsbar.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "alarms/alarmsbar.ui", self)
+

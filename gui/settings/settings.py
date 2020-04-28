@@ -24,7 +24,7 @@ class Settings(QtWidgets.QMainWindow):
         Initialized the Settings overlay widget.
         """
         super(Settings, self).__init__(*args)
-        uic.loadUi("settings/settings.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "settings/settings.ui", self)
 
         self._debug = True
         self.mainparent = mainparent

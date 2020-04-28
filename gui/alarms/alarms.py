@@ -3,6 +3,8 @@
 Module containing the Alarms class
 which mnages the alarm thresholds
 '''
+
+import os
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtCore
 
@@ -85,7 +87,7 @@ class Alarms(QtWidgets.QWidget):
         Grabs child widgets.
         """
         super(Alarms, self).__init__(*args)
-        uic.loadUi("alarms/alarms.ui", self)
+        uic.loadUi(os.environ['MVMGUI'] + "alarms/alarms.ui", self)
 
         self.layout = self.findChild(QtWidgets.QGridLayout, "monitors_layout")
         self.label_alarmname = self.findChild(
