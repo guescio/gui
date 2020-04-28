@@ -3,6 +3,7 @@
 Settings ui helper
 """
 
+import os
 import sys
 import copy
 from PyQt5 import QtWidgets, uic
