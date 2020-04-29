@@ -126,6 +126,8 @@ void setup()
   parameters["pressure_support"] = String(10);
   parameters["backup_enable"]    = String(1);
   parameters["backup_min_time"]  = String(10);
+  parameters["apnea_rate"]       = String(10);
+  parameters["apnea_ptarget"]    = String(10);
   parameters["pause_lg_time"]    = String(10);
   parameters["pause_lg_p"]       = String(10);
 }
