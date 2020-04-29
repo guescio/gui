@@ -23,7 +23,7 @@ install:
   - pip install coveralls
 # environment variables
 env:
-  - MVMGUI_BASEDIR="." MVMGUI="./gui/"
+  - MVMGUI_BASEDIR="."
 # deploy to the pages
 deploy:
   provider: pages
