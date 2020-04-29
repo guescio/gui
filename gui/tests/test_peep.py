@@ -27,4 +27,4 @@ def test_peepReset(qtbot):
 
     assert p.t_cycle_start != t0
 
-    p.phase_start["restart"] = phase_start["restart"]
+    p.phase_start["restart"] = t5
