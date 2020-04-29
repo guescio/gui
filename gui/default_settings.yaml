@@ -58,6 +58,8 @@ esp_settable_param:
     support_pressure:  'pressure_support'
     enable_backup:     'backup_enable'
     max_apnea_time:    'backup_min_time'
+    apnea_rr:          'apnea_rate'
+    apnea_insp_press:  'apnea_ptarget'
     lung_recruit_pres: 'pause_lg_p'
     lung_recruit_time: 'pause_lg_time'
     pcv_trigger_pressure: 'pcv_trigger'
@@ -472,7 +474,7 @@ support_pressure:
 #        - [10, '']
 #        - [15, '']
 
-# Minimal Respiratory Rate
+# Maximum apnea time
 max_apnea_time:
     default: 5
     min: 2
@@ -485,6 +487,31 @@ max_apnea_time:
         - [10, '']
         - [15, '']
 
+# Apnea inspiratory pressure
+apnea_insp_press:
+    default: 5
+    min: 0
+    max: 15.
+    step: 1
+    conversion: 0.980665 # From cmH2O to mbar
+    current: None
+    presets:
+        - [3, '']
+        - [10, '']
+        - [15, '']
+
+# Apnea respiratory rate
+apnea_rr:
+    default: 5
+    min: 2
+    max: 20.
+    step: 1
+    current: None
+    presets:
+        - [5, '']
+        - [10, '']
+        - [15, '']
+        - [20, '']
 
 # Enable backup
 enable_backup: 

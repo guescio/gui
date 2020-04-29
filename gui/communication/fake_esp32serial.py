@@ -94,6 +94,8 @@ class FakeESP32Serial(QtWidgets.QMainWindow):
             "pressure_support": 27.,
             "backup_min_time": 17.0,
             "backup_enable": 1,
+            "apnea_rate": 7,
+            "apnea_ptarget": 37,
             "pause_lg_p": 37,
             "pause_lg_time": 7.0}
 
