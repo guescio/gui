@@ -472,7 +472,7 @@ support_pressure:
 #        - [10, '']
 #        - [15, '']
 
-# Minimal Respiratory Rate
+# Maximum apnea time
 max_apnea_time:
     default: 5
     min: 2
