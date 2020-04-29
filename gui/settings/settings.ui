@@ -615,8 +615,8 @@ QTabBar::tab:!selected {
          <rect>
           <x>10</x>
           <y>200</y>
-          <width>781</width>
-          <height>131</height>
+          <width>780</width>
+          <height>140</height>
          </rect>
         </property>
         <property name="font">
@@ -921,7 +921,7 @@ border: 2px solid gray;
           <x>10</x>
           <y>0</y>
           <width>340</width>
-          <height>60</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="font">
@@ -939,9 +939,9 @@ border: 2px solid gray;
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>80</y>
+          <y>60</y>
           <width>340</width>
-          <height>40</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="font">
@@ -961,7 +961,7 @@ border: 2px solid gray;
           <x>360</x>
           <y>0</y>
           <width>400</width>
-          <height>60</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="font">
@@ -980,9 +980,9 @@ border: 2px solid gray;
         <property name="geometry">
          <rect>
           <x>360</x>
-          <y>70</y>
+          <y>60</y>
           <width>400</width>
-          <height>60</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="font">
@@ -1016,7 +1016,7 @@ border: 2px solid gray;
           <x>440</x>
           <y>0</y>
           <width>240</width>
-          <height>60</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="palette">
@@ -1129,9 +1129,9 @@ border: 2px solid gray;
         <property name="geometry">
          <rect>
           <x>440</x>
-          <y>70</y>
+          <y>60</y>
           <width>240</width>
-          <height>60</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="palette">
@@ -1244,9 +1244,9 @@ border: 2px solid gray;
         <property name="geometry">
          <rect>
           <x>360</x>
-          <y>140</y>
+          <y>120</y>
           <width>400</width>
-          <height>60</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="font">
@@ -1265,9 +1265,9 @@ border: 2px solid gray;
         <property name="geometry">
          <rect>
           <x>440</x>
-          <y>140</y>
+          <y>120</y>
           <width>240</width>
-          <height>60</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="palette">
@@ -1380,9 +1380,9 @@ border: 2px solid gray;
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>140</y>
+          <y>120</y>
           <width>340</width>
-          <height>60</height>
+          <height>50</height>
          </rect>
         </property>
         <property name="font">
@@ -1400,9 +1400,9 @@ border: 2px solid gray;
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>200</y>
-          <width>781</width>
-          <height>131</height>
+          <y>180</y>
+          <width>780</width>
+          <height>160</height>
          </rect>
         </property>
         <property name="font">
@@ -1425,7 +1425,7 @@ border: 2px solid gray;
           <rect>
            <x>10</x>
            <y>20</y>
-           <width>171</width>
+           <width>170</width>
            <height>40</height>
           </rect>
          </property>
@@ -1447,14 +1447,14 @@ border: 2px solid gray;
          <property name="geometry">
           <rect>
            <x>190</x>
-           <y>40</y>
+           <y>10</y>
            <width>150</width>
-           <height>60</height>
+           <height>40</height>
           </rect>
          </property>
          <property name="font">
           <font>
-           <pointsize>13</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1467,9 +1467,9 @@ border: 2px solid gray;
          <property name="geometry">
           <rect>
            <x>350</x>
-           <y>40</y>
+           <y>10</y>
            <width>400</width>
-           <height>60</height>
+           <height>40</height>
           </rect>
          </property>
          <property name="font">
@@ -1497,9 +1497,9 @@ border: 2px solid gray;
          <property name="geometry">
           <rect>
            <x>430</x>
-           <y>40</y>
+           <y>10</y>
            <width>240</width>
-           <height>60</height>
+           <height>40</height>
           </rect>
          </property>
          <property name="palette">
@@ -1621,6 +1621,7 @@ border: 2px solid gray;
           </rect>
          </property>
         </widget>
+	background-color: rgba(0, 0, 0, 0);
        </widget>
        <zorder>groupBox</zorder>
        <zorder>label_6</zorder>
