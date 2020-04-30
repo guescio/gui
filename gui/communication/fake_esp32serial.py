@@ -27,7 +27,11 @@ class FakeMonitored(QtWidgets.QWidget):
         - is_random: Boolean to indicate using randomized data.
         """
         super(FakeMonitored, self).__init__()
-        uic.loadUi(os.environ['MVMGUI'] + 'communication/input_monitor_widget.ui', self)
+        uifile = os.path.join(os.path.dirname(
+            os.path.realpath(__file__)),
+            "input_monitor_widget.ui")
+
+        uic.loadUi(uifile, self)
 
         self.generator = generator
 
@@ -66,7 +70,11 @@ class FakeESP32Serial(QtWidgets.QMainWindow):
     def __init__(self, config):
         super(FakeESP32Serial, self).__init__()
 
-        uic.loadUi(os.environ['MVMGUI'] + 'communication/fakeesp32.ui', self)
+        uifile = os.path.join(os.path.dirname(
+            os.path.realpath(__file__)),
+            "fakeesp32.ui")
+
+        uic.loadUi(uifile, self)
         self.get_all_fields = config["get_all_fields"]
         self.observables = {name: None for name in self.get_all_fields}
 
