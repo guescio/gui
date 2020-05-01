@@ -1,6 +1,6 @@
 # The serial port to use:
 port: '/dev/ttyUSB0'
-settings_file_path: '/home/pi/settings.txt'
+settings_file_path: '/storage/pi/settings.txt'
 
 # list of observables to expect from the get_all function call
 # The returned dict will use those as keys. Order matters.
