@@ -646,7 +646,7 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>120</height>
+            <height>90</height>
            </size>
           </property>
           <property name="font">
@@ -666,7 +666,7 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>120</height>
+            <height>90</height>
            </size>
           </property>
           <property name="font">
@@ -682,11 +682,31 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>90</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Spirometer Calibration</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="button_start_vent">
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>120</height>
+            <height>90</height>
            </size>
           </property>
           <property name="font">
