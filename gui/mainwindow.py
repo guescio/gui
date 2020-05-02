@@ -193,8 +193,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.button_resume_patient.pressed.connect(self.goto_resume_patient)
         self.button_new_patient.pressed.connect(self.goto_new_patient)
         self.button_start_vent.pressed.connect(self.goto_main)
-        # TODO: connect to circuit test on ESP
-        # self.button_start_test.pressed.connect()
+        self.button_start_test.pressed.connect(self.goto_selftest)
         self.button_start_settings.pressed.connect(self.goto_settings)
 
         # Connect back and menu buttons to toolbar and menu
