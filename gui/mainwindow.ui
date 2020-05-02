@@ -677,7 +677,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Circuit Test</string>
+           <string>Self Test</string>
           </property>
          </widget>
         </item>
