@@ -84,7 +84,7 @@ QDoubleSpinBox::down-button  {
       <property name="styleSheet">
        <string notr="true">QTabBar::tab {
     /* make the tab large enough to show the full text */
-    width: 190px;
+    width: 160px;
 	height: 35px;
 }
 
