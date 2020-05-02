@@ -411,6 +411,14 @@ class MainWindow(QtWidgets.QMainWindow):
         elif self._start_stop_worker.mode() == self._start_stop_worker.MODE_PCV:
             self.settings.tabs.setCurrentWidget(self.settings.tab_pcv)
 
+    def goto_selftest(self):
+        """
+        Open the self-test pane
+        """
+
+        self.show_selftest()
+        self.show_blank_bottom()
+
     def goto_main(self):
         """
         Open the home ui
@@ -473,6 +481,13 @@ class MainWindow(QtWidgets.QMainWindow):
         """
         self.bottombar.setCurrentWidget(self.numpadbar)
 
+    def show_blank_bottom(self):
+        """
+        Shows a blank bottom bar.
+        """
+
+        self.bottombar.setCurrentWidget(self.blank)
+
     def show_toolbar(self, locked_state=False):
         """
         Shows the toolbar in the bottom bar.
@@ -507,6 +522,13 @@ class MainWindow(QtWidgets.QMainWindow):
         """
 
         self.toppane.setCurrentWidget(self.main)
+
+    def show_selftest(self):
+        """
+        Show the self-test pane.
+        """
+
+        self.toppane.setCurrentWidget(self.self_test)
 
     def show_settingsfork(self):
         """
