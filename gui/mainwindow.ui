@@ -724,6 +724,8 @@
        </layout>
       </widget>
       <widget class="MainDisplay" name="main"/>
+      <widget class="SpirometerCalibration" name="spiro_calib"/>
+      <widget class="SelfTest" name="self_test"/>
      </widget>
     </item>
     <item>
@@ -1948,6 +1950,18 @@ Screen</string>
    <class>SpecialBar</class>
    <extends>QWidget</extends>
    <header>special/special</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SpirometerCalibration</class>
+   <extends>QWidget</extends>
+   <header>calibration/spirometer</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SelfTest</class>
+   <extends>QWidget</extends>
+   <header>selftest/selftest</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
